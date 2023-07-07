@@ -6,7 +6,7 @@ const fund = {
     "funding_id": 1,
     "host_id": "danaka",
     "seller_id": "healim01", 
-    "category_id": "goods",
+    "category_id": "굿즈",
     "goal_amount": 5000000,
     "is_active": 3,
     "created_date": "2023-06-23",
@@ -182,6 +182,9 @@ const Buy = styled.button`
 
 
 function Funding() {
+    fund_amounts.current_amount = fund_amounts.current_amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    fund.goal_amount = fund.goal_amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    fund.price = fund.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return <Fund>
         <Category> { fund.category_id } </Category> 
         <ProTitle> { fund.title } </ProTitle>
@@ -212,7 +215,7 @@ function Funding() {
                 <Hr />
                 <GoalContent>
                     <GoalContentTitle> 목표 금액 </GoalContentTitle>
-                    <GoalContentItem> { fund.goal_amount } </GoalContentItem>
+                    <GoalContentItem> { fund.goal_amount }원 </GoalContentItem>
                 </GoalContent>
                 <GoalContent>   
                     <GoalContentTitle> 펀딩 기간 </GoalContentTitle>

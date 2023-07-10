@@ -7,24 +7,25 @@ const fund = {
     "host_id": "danaka",
     "seller_id": "healim01", 
     "category_id": "굿즈",
-    "goal_amount": 5000000,
+    "goal_amount": 1000000,
     "is_active": 3,
     "created_date": "2023-06-23",
-    "title": "열대의 여왕! 보랏빛 뽀얀달달 속살, 망고스틴이 최고야!",
-    "name": "리얼 망고스틴 (한병)",
+    "title": "오이시쿠나레 티셔츠",
     "image": "https://tumblbug-pci.imgix.net/da55d49c72146cd5042c3c71153d4c0712ef9277/f730bd12dcaa374a19d198bfb8dc1ddbed5db820/91d99951e17b746ba57acf0af371a2f01a9bfa2c/8ee7bf23-cda9-49e9-bd4b-46cedbd12210.jpeg?ixlib=rb-1.1.0&w=1240&h=930&auto=format%2Ccompress&lossless=true&fit=crop&s=3e62ecf992a4257e3f5b2187c6f1cf8c",
     "description": "토종 영광 고추가루",
-    "price": 1000000,
-    "start_date": "2023-07-01",
-    "end_date": "2023-07-30",	
+    "price": 10000,
+    "start_date": Date.now(),
+    "end_date": "2023.07.30.",	
+    "biling_date" : "2023.08.01.",
     "likes" : 40,
 };
 
 const fund_amounts = {
     "funding_id": 1,
-    "current_amount": 30000000,
-    "backers_count": 30,
+    "current_amount": 3000000,
+    "backers_count": 300,
 };
+
 
 const Fund = styled.div`
   display: flex;
@@ -180,6 +181,17 @@ const Buy = styled.button`
     border-radius: 5px;
 `;
 
+const ratio = fund_amounts.current_amount / fund.goal_amount * 100;
+
+const formatDate = (timestamp) => {
+  const date = new Date(timestamp);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  
+  return `${year}/${month}/${day}`;
+};
+
 
 function Funding() {
     fund_amounts.current_amount = fund_amounts.current_amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -198,19 +210,19 @@ function Funding() {
                     <ItemDetail>
                         <CurrContentItem> { fund_amounts.current_amount } </CurrContentItem>   
                         <Detail>원</Detail> 
-                        <Percentage>200%</Percentage>
-                    </ItemDetail>
-                    {/* <CurrContentItem> fund_amounts. </CurrContentItem> */}
-                    <CurrContentTitle> 남은 시간 </CurrContentTitle>
-                    <ItemDetail>
-                        <CurrContentItem> { fund_amounts.backers_count-25 } </CurrContentItem>
-                        <Detail>일</Detail> 
+                        <Percentage> { ratio }%</Percentage>
                     </ItemDetail>
                     <CurrContentTitle> 후원자 </CurrContentTitle>
                     <ItemDetail>
                         <CurrContentItem> { fund_amounts.backers_count } </CurrContentItem>
                         <Detail>명</Detail> 
                     </ItemDetail>
+                    <CurrContentTitle> 후원 금액 </CurrContentTitle>
+                    <ItemDetail>
+                        <CurrContentItem> { fund.price } </CurrContentItem>
+                        <Detail> 원 + </Detail> 
+                    </ItemDetail>
+                    <Detail> 배송비 포함(제주도/도서산간:3,000원 추가 후원) </Detail>
                 </CurrContent>
                 <Hr />
                 <GoalContent>
@@ -219,7 +231,12 @@ function Funding() {
                 </GoalContent>
                 <GoalContent>   
                     <GoalContentTitle> 펀딩 기간 </GoalContentTitle>
-                    <GoalContentItem> { fund.start_date } ~ { fund.end_date } </GoalContentItem>
+                    <GoalContentItem> { formatDate(fund.start_date) } ~ { formatDate(fund.end_date) } </GoalContentItem>
+                    {/* TODO :: 며칠 남았는지 작업 안함 */}
+                </GoalContent>
+                <GoalContent>   
+                    <GoalContentTitle> 결제 </GoalContentTitle>
+                    <GoalContentItem> 목표금액 달성시 { formatDate(fund.biling_date) }에 결제 진행 </GoalContentItem>
                 </GoalContent>
                 <Product>
                     <Name> { fund.name } </Name>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FundingDetail from "./FundingDetail";
 
 
 const fund = {
@@ -10,9 +11,8 @@ const fund = {
     "goal_amount": 1000000,
     "is_active": 3,
     "created_date": "2023-06-23",
-    "title": "오이시쿠나레 티셔츠",
-    "image": "https://tumblbug-pci.imgix.net/da55d49c72146cd5042c3c71153d4c0712ef9277/f730bd12dcaa374a19d198bfb8dc1ddbed5db820/91d99951e17b746ba57acf0af371a2f01a9bfa2c/8ee7bf23-cda9-49e9-bd4b-46cedbd12210.jpeg?ixlib=rb-1.1.0&w=1240&h=930&auto=format%2Ccompress&lossless=true&fit=crop&s=3e62ecf992a4257e3f5b2187c6f1cf8c",
-    "description": "토종 영광 고추가루",
+    "title": "보송보송 여우 보송이 키링 인형",
+    "image": "https://tumblbug-pci.imgix.net/da55d49c72146cd5042c3c71153d4c0712ef9277/29b42ad5398ae28327d1e996a009f0e58464a1b4/f8fb2e4966d583fc2bc0c490ae456479e1d0083a/75b84011-2d99-4db5-9c4e-afab213e4e98.jpeg?ixlib=rb-1.1.0&w=1240&h=930&auto=format%2Ccompress&lossless=true&fit=crop&s=b571cc96917ee605da1e11b26bacc131",
     "price": 10000,
     "start_date": Date.now(),
     "end_date": "2023.07.30.",	
@@ -32,7 +32,8 @@ const Fund = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 50px 100px; 
+  min-width: 980px;
+  padding: 50px 0px; 
 `;
 
 const Category = styled.div`
@@ -118,35 +119,6 @@ const GoalContentItem = styled.span`
 const GoalContentTitle = styled(GoalContentItem)`
     font-weight: bold;
     margin-right: 30px;
-`;
-
-const Product = styled.button`
-    margin: 20px 0px;
-    font-size: 13px;
-    width: 300px;
-    height: 50px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-    font-size: 15px;
-    background-color: white;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-
-    &:hover {
-    border: 1px solid black;
-  }
-`;
-
-const Name = styled.div`
-    margin-right: 10px;
-    font-weight: 400;
-`;
-
-const Price = styled.div` 
-    font-weight: bold;
 `;
 
 const GridsButtons = styled(Grids)`
@@ -238,10 +210,6 @@ function Funding() {
                     <GoalContentTitle> 결제 </GoalContentTitle>
                     <GoalContentItem> 목표금액 달성시 { formatDate(fund.biling_date) }에 결제 진행 </GoalContentItem>
                 </GoalContent>
-                <Product>
-                    <Name> { fund.name } </Name>
-                    <Price> { fund.price }원</Price>
-                </Product>
                 <GridsButtons>
                     <Likes>
                         <FavoriteBorderIcon fontSize="small"/>
@@ -251,6 +219,7 @@ function Funding() {
                 </GridsButtons>
             </Grid>
          </Grids>
+         <FundingDetail/>
     </Fund>;
 }
 export default Funding;

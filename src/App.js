@@ -3,6 +3,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import Router from './Router';
 import React from 'react';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import theme from './theme';
 
 const GlobalStyle = createGlobalStyle`
@@ -68,14 +69,18 @@ a {
 }
 `;
 
+const queryClient = new QueryClient();
+
 function App() {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Router />
-        <ReactQueryDevtools initialIsOpen={true} />
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Router />
+          <ReactQueryDevtools initialIsOpen={true} />
+        </ThemeProvider>
+      </QueryClientProvider>
     </>
   );
 }

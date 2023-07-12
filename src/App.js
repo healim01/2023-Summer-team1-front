@@ -1,7 +1,10 @@
-import { createGlobalStyle } from "styled-components";
-import Router from "./Router";
-import React from "react";
-import { ReactQueryDevtools } from "react-query/devtools";
+import { createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from '@mui/material/styles';
+import Router from './Router';
+import React from 'react';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import theme from './theme';
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -66,12 +69,18 @@ a {
 }
 `;
 
+const queryClient = new QueryClient();
+
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <Router />
-      <ReactQueryDevtools initialIsOpen={true} />
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Router />
+          <ReactQueryDevtools initialIsOpen={true} />
+        </ThemeProvider>
+      </QueryClientProvider>
     </>
   );
 }

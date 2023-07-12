@@ -8,6 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import styled from 'styled-components';
 
 const Buy = styled.button`
+  font-size: 16px;
   width: 250px;
   height: 50px;
   background-color: red;
@@ -46,8 +47,7 @@ export default function PopUp() {
         <DialogActions>
           <Button onClick={handleClose}>나의 펀딩 내역 확인하기 </Button>
           <Button onClick={handleClose} autoFocus>
-            {' '}
-            펀딩 계속하기{' '}
+            펀딩 계속하기
           </Button>
         </DialogActions>
       </Dialog>

@@ -5,7 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 // import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import styled from 'styled-components';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 import LogoImg from '../imgs/logo.png';
 
 const Buy = styled.button`
@@ -24,8 +24,8 @@ const PopUpContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 200px;
-  width: 350px;
+  height: 250px;
+  width: 500px;
 `;
 
 const PopLogo = styled.img`
@@ -37,7 +37,7 @@ const PopText = styled.div`
   margin-top: 20px;
 `;
 
-export default function PopUp(props) {
+export default function AddPopUp(props) {
   const [open, setOpen] = React.useState(false);
 
   // const handleClickOpen = () => {
@@ -47,24 +47,28 @@ export default function PopUp(props) {
     setOpen(false);
   };
 
-  // const button = document.querySelector('#your-button-id');
-  const postBacker = async () => {
-    try {
-      const response = axios.post(`http://localhost:8080/backer/15/${props.funding_id}`, {
-        fund_num: 1,
-      });
-      setOpen(true);
-
-      console.log(response); // 응답 확인 (선택사항)
-    } catch (error) {
-      console.error(error);
-      // 에러 처리
-    }
+  const button = document.querySelector('#your-button-id');
+  const Popup = async () => {
+    setOpen(true);
   };
 
   return (
     <div>
-      <Buy onClick={postBacker}> 이 프로젝트 후원하기</Buy>
+      <Button
+        onClick={Popup}
+        id="submit-button"
+        size="large"
+        htmlType="submit"
+        style={{
+          backgroundColor: '#ee7f41',
+          color: 'white',
+          fontWeight: 'bold',
+          width: '150px',
+          borderRadius: '20px',
+        }}
+      >
+        상품 등록하기
+      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -76,16 +80,18 @@ export default function PopUp(props) {
           <PopUpContainer>
             <PopLogo src={LogoImg} />
             <PopText>
-              예약 구매가 완료되었습니다.
+              펀딩 신청이 완료되었습니다
               <br />
-              프로젝트에 후원해주셔서 감사합니다.
+              프로젝트는 펀디깅 그리고 아티스트의 승인 후 등록됩니다
             </PopText>
           </PopUpContainer>
         </DialogTitle>
         <DialogActions sx={{ display: 'flex', justifyItems: 'center' }}>
-          <Button onClick={handleClose} autoFocus sx={{ backgroundColor: 'red' }}>
-            펀딩 계속하기
-          </Button>
+          <Link to={`/room/${props.roomId}`}>
+            <Button onClick={handleClose} autoFocus sx={{ backgroundColor: 'red' }}>
+              확인
+            </Button>
+          </Link>
         </DialogActions>
       </Dialog>
     </div>

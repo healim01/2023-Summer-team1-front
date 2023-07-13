@@ -1,5 +1,7 @@
 import { useRef } from 'react';
 import styled from 'styled-components';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import EmailIcon from '@mui/icons-material/Email';
 
 const Detail = styled.div`
   display: flex;
@@ -12,15 +14,20 @@ const DetailButtons = styled.div`
 
 const DetailButton = styled.button`
   font-size: 16px;
-  width: 70px;
+  width: 75px;
   height: 30px;
-  border: 1px solid lightgray;
+  border: 2px solid #ee7f41;
   border-radius: 20px;
   background-color: white;
-  margin-right: 10px;
+  margin-right: 15px;
+
+  &:hover {
+    background-color: #ee7f41;
+    color: white;
+  }
 
   &:active {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-weight: bold;
   }
 `;
@@ -53,7 +60,9 @@ const DetailText = styled.div`
   display: flex;
   text-align: start;
   margin: 30px;
+  margin-bottom: 50px;
   font-size: 20px;
+  word-break: keep-all;
 `;
 
 const TeamInfos = styled.div`
@@ -78,16 +87,24 @@ const TeamImg = styled.img`
   width: 50px;
   height: 50px;
   object-fit: cover;
-  margin-right: 5px;
+  margin-right: 10px;
 `;
 
 const TeamButton = styled.button`
   width: 150px;
   height: 40px;
   border: 1px solid lightgray;
-  margin-left: 30px;
+  margin-left: 15px;
   font-size: 16px;
   background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  &:active {
+    border: 1px solid black;
+  }
 `;
 
 const AdImg = styled.img`
@@ -106,7 +123,7 @@ function FundingDetail(props) {
     if (elementRef.current !== null) {
       const offset = elementRef.current.offsetTop;
       window.scrollTo({
-        top: offset - 50,
+        top: offset - 100,
         behavior: 'smooth',
       });
     }
@@ -124,7 +141,8 @@ function FundingDetail(props) {
         <BodyGrids>
           <DetailBody>
             <DetailTitle ref={sectionOne}> 소개 </DetailTitle>
-            <Intro src={props.fundDetail?.description} />
+            <Intro src={props.fundDetail?.funding_image} />
+            <DetailText> {props.fundDetail?.description} </DetailText>
             <DetailTitle ref={sectionTwo}> 예산 </DetailTitle>
             <DetailText> {props.fundDetail?.funding_budget} </DetailText>
             <DetailTitle ref={sectionThree}> 일정 </DetailTitle>
@@ -139,13 +157,18 @@ function FundingDetail(props) {
               <TeamInfo>
                 <TeamImg src={props.fundDetail?.host_title_image} />
                 {props.fundDetail?.host_name}
-                <TeamButton> 팔로우 하기 </TeamButton>
+                <TeamButton>
+                  <BookmarkIcon /> 팔로우 하기
+                </TeamButton>
               </TeamInfo>
               <TeamInfo> 팀 </TeamInfo>
               <TeamInfo>
                 <TeamImg src={props.fundDetail?.seller_image} />
                 {props.fundDetail?.seller_name}
-                <TeamButton> 문의하기 </TeamButton>
+                <TeamButton>
+                  <EmailIcon />
+                  문의하기
+                </TeamButton>
               </TeamInfo>
             </TeamInfos>
           </DetailDummy>

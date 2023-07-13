@@ -1,8 +1,9 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Funding from './routes/Funding';
-import MakeFund from './routes/MakeFund';
+// import MakeFund from './routes/MakeFund';
 import Room from './routes/Room';
 import Home from './routes/Home';
+import MakeFund1 from './routes/MakeFund';
 
 function Router() {
   return (
@@ -18,7 +19,7 @@ function Router() {
           <Funding />
         </Route>
         <Route exact path="/room/:roomId/make">
-          <MakeFund />
+          <MakeFund1 />
         </Route>
       </Switch>
     </BrowserRouter>

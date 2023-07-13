@@ -14,29 +14,31 @@ const Fund = styled.div`
   align-items: center;
   text-align: center;
   min-width: 1000px;
-  padding: 50px 0px;
+  padding: 50px 200px;
 `;
 
 const Category = styled.div`
-  font-size: 18px;
-  width: 100px;
-  height: 40px;
-  border: 1px solid lightgray;
+  font-size: 14px;
+  width: 120px;
+  height: 30px;
+  border: 1px solid #d3d3d3;
+  background-color: #fafafa;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 `;
 
 const ProTitle = styled.div`
-  font-size: 50px;
+  font-size: 35px;
   font-weight: bold;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 `;
 
 const Grids = styled.div`
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   margin: 25px 0px;
   gap: 50px;
 `;
@@ -44,8 +46,9 @@ const Grids = styled.div`
 const Container = styled.div``;
 
 const ProImg = styled.img`
-  width: 650px;
+  width: 500px;
   height: 500px;
+  object-fit: cover;
 `;
 
 const CurrContent = styled.div`
@@ -66,8 +69,9 @@ const ItemDetail = styled.div`
 
 const CurrContentItem = styled.div`
   font-weight: 400;
-  font-size: 45px;
+  font-size: 32px;
   margin-bottom: 10px;
+  color: ${props => props.color};
 `;
 
 const Detail = styled.div`
@@ -75,10 +79,11 @@ const Detail = styled.div`
   margin-bottom: 20px;
   margin-left: 5px;
   margin-right: 10px;
+  color: ${props => props.color};
 `;
 
 const Percentage = styled(Detail)`
-  font-size: 21px;
+  font-size: 16px;
   font-weight: 400;
 `;
 
@@ -103,9 +108,9 @@ const GoalContentTitle = styled(GoalContentItem)`
   margin-right: 30px;
 `;
 
-const GridsButtons = styled(Grids)`
-  grid-template-columns: 1fr 5fr;
-  gap: 10px;
+const Buttons = styled.div`
+  display: flex;
+  margin: 20px 0px;
 `;
 
 const Likes = styled.button`
@@ -119,6 +124,7 @@ const Likes = styled.button`
   height: 50px;
   font-size: 13px;
   background-color: white;
+  margin-right: 30px;
   &:active {
     color: red;
   }
@@ -144,6 +150,7 @@ function Funding() {
   const { roomId, fundingId } = useParams();
 
   const { isLoading, data: fund } = useQuery(['fund', roomId], () => getFunding(fundingId), {
+    refetchInterval: 500,
     onSuccess: data => {
       console.log('Funding data:', data);
     },
@@ -155,24 +162,24 @@ function Funding() {
     <>
       <Header />
       <Fund>
-        <Category> {fund?.category_name} </Category>
-        <ProTitle> {fund?.funding_title} </ProTitle>
+        <Category> {fund?.category_name} 호스트 </Category>
         <Grids>
           <Container>
-            <ProImg src={fund?.funding_image} />
+            <ProImg src={fund?.title_image} />
           </Container>
           <Container>
             <CurrContent>
+              <ProTitle> {fund?.funding_title} </ProTitle>
               <CurrContentTitle> 모인 금액 </CurrContentTitle>
               <ItemDetail>
                 <CurrContentItem> {converter(fund?.current_amount)} </CurrContentItem>
                 <Detail>원</Detail>
-                <Percentage> {fund?.progress}%</Percentage>
+                <Percentage> {Math.ceil(fund?.progress)}%</Percentage>
               </ItemDetail>
               <CurrContentTitle> 후원자 </CurrContentTitle>
               <ItemDetail>
-                <CurrContentItem> {converter(fund?.backers_count)} </CurrContentItem>
-                <Detail>명</Detail>
+                <CurrContentItem color="#6314e7"> {converter(fund?.backers_count)} </CurrContentItem>
+                <Detail color="#6314e7">명 참여</Detail>
               </ItemDetail>
               <CurrContentTitle> 후원 금액 </CurrContentTitle>
               <ItemDetail>
@@ -196,13 +203,13 @@ function Funding() {
               <GoalContentTitle> 결제 </GoalContentTitle>
               <GoalContentItem> 목표금액 달성시 {formatDate(fund?.budget_date)}에 결제 진행 </GoalContentItem>
             </GoalContent>
-            <GridsButtons>
+            <Buttons>
               <Likes>
                 <FavoriteBorderIcon fontSize="small" />
                 {fund?.like_num}
               </Likes>
-              <PopUp />
-            </GridsButtons>
+              <PopUp funding_id={fundingId} />
+            </Buttons>
           </Container>
         </Grids>
         <FundingDetail fundDetail={fund} />

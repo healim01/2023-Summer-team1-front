@@ -11,7 +11,9 @@ const Li = styled.li`
   position: relative;
   margin: 0 0 25px 15px;
   width: 200px;
-  height: 200px;
+  height: 280px;
+  background-color: #e4d5ff;
+  border-radius: 10px;
 
   &:hover {
     box-shadow: 1px 1px 20px #ddd;
@@ -24,7 +26,7 @@ const Li = styled.li`
 
 const Img = styled.img`
   position: absolute;
-  bottom: 0;
+  top: 0;
   width: 200px;
   height: 200px;
   object-fit: cover;
@@ -33,37 +35,35 @@ const Img = styled.img`
 const Text = styled.span`
   position: absolute;
   left: 15px;
-  top: 70%;
+  top: 85%;
   font-size: 20px;
   font-weight: bold;
-  color: white;
+  color: black;
   letter-spacing: -1px;
-  background-color: black;
 `;
 
 const HostDetail = styled.span`
-  width: 100px;
   word-break: keep-all;
   position: absolute;
-  color: white;
-  /* background-color: lightgray; */
+  background-color: rgb(255, 255, 255, 0.5);
   left: 15px;
-  top: 12px;
+  bottom: 50px;
   right: 15px;
   font-size: 16px;
-  font-weight: bold;
   line-height: 20px;
   letter-spacing: -1px;
 `;
 
 export default function RoomCard(props) {
+  const description =
+    props.room.description.length > 12 ? props.room.description.substring(0, 12) + '..' : props.room.description;
   return (
     <Link to={`/room/${props.room.room_id}`}>
       <Container>
         <ul>
           <Li>
             <Img src={props.room.title_image} />
-            <HostDetail> " {props.room.description} " </HostDetail>
+            <HostDetail> "{description}" </HostDetail>
             <Text> {props.room.room_name} </Text>
           </Li>
         </ul>

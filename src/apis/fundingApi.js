@@ -20,14 +20,3 @@ export const getAllFunding = async () => {
   const response = await axios.get(`http://localhost:8080/main/funding-allList`);
   return response.data;
 };
-
-// POST
-export const postApi = async data => {
-  const response = await axios.post(`http://localhost:8080/room`, data);
-  return response;
-};
-
-export const postApis = async pet => {
-  const response = await axios.fetch(`http://localhost:8080/room`, pet);
-  return response;
-};

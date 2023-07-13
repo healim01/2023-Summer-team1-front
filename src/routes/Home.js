@@ -27,15 +27,16 @@ const Title = styled.div`
   display: flex;
   font-size: 20px;
   font-weight: bold;
+  margin-bottom: 30px;
 `;
 
 const More = styled.a`
-  font-size: 20px;
+  font-size: 14px;
   display: flex;
   justify-content: flex-end;
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  color: gray;
+  color: #6314e7;
   text-underline-position: under;
 
   &:active {
@@ -92,9 +93,7 @@ export default function Home() {
       </PageContainer>
       <Funds>
         <Grids>
-          {funds?.map(fund => (
-            <FundingCard key={fund.funding_id} fund={fund} />
-          ))}
+          {funds?.map(fund => (fund.is_active === 3 ? <FundingCard key={fund.funding_id} fund={fund} /> : null))}
         </Grids>
       </Funds>
       <Footer />

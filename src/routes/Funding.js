@@ -19,7 +19,7 @@ const Fund = styled.div`
 
 const Category = styled.div`
   font-size: 14px;
-  width: 100px;
+  width: 120px;
   height: 30px;
   border: 1px solid #d3d3d3;
   background-color: #fafafa;
@@ -162,7 +162,7 @@ function Funding() {
     <>
       <Header />
       <Fund>
-        <Category> {fund?.category_name} </Category>
+        <Category> {fund?.category_name} 호스트 </Category>
         <Grids>
           <Container>
             <ProImg src={fund?.title_image} />

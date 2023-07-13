@@ -28,28 +28,29 @@ const Img = styled.img`
   width: 200px;
   height: 200px;
   object-fit: cover;
-  /* border-radius: 10px; */
 `;
 
 const Text = styled.span`
   position: absolute;
   left: 15px;
   top: 70%;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
-  color: #333;
+  color: white;
   letter-spacing: -1px;
+  background-color: black;
 `;
 
 const HostDetail = styled.span`
-  width: 50px;
+  width: 100px;
   word-break: keep-all;
   position: absolute;
-  color: gray;
+  color: white;
+  /* background-color: lightgray; */
   left: 15px;
   top: 12px;
   right: 15px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   line-height: 20px;
   letter-spacing: -1px;
@@ -61,7 +62,7 @@ export default function RoomCard(props) {
       <Container>
         <ul>
           <Li>
-            <Img src={props.room.room_img} />
+            <Img src={props.room.title_image} />
             <HostDetail> " {props.room.description} " </HostDetail>
             <Text> {props.room.room_name} </Text>
           </Li>

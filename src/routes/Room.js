@@ -91,12 +91,16 @@ function Room() {
       </PageContainer>
       <Funds>
         <Grids>
-          {room?.fundingList?.map(fund => (
+          {/* {room?.fundingList?.map(fund => (
             <FundingCard key={fund.funding_id} fund={fund} />
-          ))}
+          ))} */}
+
+          {room?.fundingList?.map(fund =>
+            fund.is_active === 3 ? <FundingCard key={fund.funding_id} fund={fund} /> : null,
+          )}
         </Grids>
       </Funds>
-      <CreateButton roomId={roomId} />
+      <CreateButton roomId={roomId} room_name={room?.room_name} />
       <Footer />
     </>
   );

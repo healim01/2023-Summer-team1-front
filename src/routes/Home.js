@@ -5,6 +5,7 @@ import RoomCard from '../components/RoomCard';
 import { useQuery } from 'react-query';
 // import { useParams } from 'react-router-dom';
 import { getAllFunding, getTop4Room } from '../apis/fundingApi';
+import Footer from '../components/Footer';
 
 const RoomContainer = styled.div`
   padding: 50px 200px;
@@ -96,6 +97,7 @@ export default function Home() {
           ))}
         </Grids>
       </Funds>
+      <Footer />
     </>
   );
 }

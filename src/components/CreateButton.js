@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   position: absolute;
-  top: 80%;
+  top: 85%;
   right: 5%;
   width: 150px;
   height: 50px;

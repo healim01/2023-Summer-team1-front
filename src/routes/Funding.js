@@ -147,16 +147,16 @@ const converter = num => {
 };
 
 function Funding() {
-  const { roomId, fundingId } = useParams();
+  // const { roomId, fundingId } = useParams();
 
-  const { isLoading, data: fund } = useQuery(['fund', roomId], () => getFunding(fundingId), {
-    refetchInterval: 500,
-    onSuccess: data => {
-      console.log('Funding data:', data);
-    },
-  });
+  // const { isLoading, data: fund } = useQuery(['fund', roomId], () => getFunding(fundingId), {
+  //   refetchInterval: 500,
+  //   onSuccess: data => {
+  //     console.log('Funding data:', data);
+  //   },
+  // });
 
-  console.log(fund);
+  // console.log(fund);
 
   return (
     <>

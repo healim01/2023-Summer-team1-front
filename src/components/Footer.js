@@ -8,7 +8,7 @@ const FooterContainer = styled.footer`
   height: 300px;
   border-top: 1px solid black;
   padding: 30px;
-  margin-top: 100px;
+  margin-top: 300px;
 `;
 
 const Grids = styled.div`

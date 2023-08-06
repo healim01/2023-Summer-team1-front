@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# 🦁 멋쟁이 사자처럼 11기 피서해커톤 2023 ( Team : Fundiggin; 펀디깅 )
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br/> <br/>
+<p align="center">
+  <img src="https://github.com/LikeLionHGU/Front-chihyang-mai/assets/74346290/0a8caedd-f1b7-4bb4-be33-9021352be54c" alt="logo">
+</p>
+<br/> <br/>
 
-## Available Scripts
+**[일시]** 23. 7월 3일 ~ 7월 14일  
+**[주제]** 디깅모멘텀(Throught Enjoyment：Digging Momentum)  
+**[목적]** 기획, 디자인, 개발팀이 협업하여 아이디어를 웹서비스로 만들어 내는 역량 증진
 
-In the project directory, you can run:
+<br/>
+<p>
+    <img src="https://img.shields.io/badge/🏝피서해커톤%20-%231572B6.svg?&style=for-the-badge&&logoColor=white"/>
+    <img src="https://img.shields.io/badge/☀️하계방학 프로젝트%20-%2359666C.svg?&style=for-the-badge&&logoColor=white"/>
+</p>
 
-### `npm start`
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h3>🔧 사용 스택</h3>
+<hr/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h4>Front-End</h4>
+<div>
+    <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> 
+	<img src="https://img.shields.io/badge/React-E34F26?style=for-the-badge&logo=react&logoColor=white&color=61DAFB" />
+    <img src="https://img.shields.io/badge/Axios-1572B6?style=for-the-badge&logo=axios&logoColor=white&color=5A29E4" />
+    <img src="https://img.shields.io/badge/Mui-1572B6?style=for-the-badge&logo=mui&logoColor=white&color=007FFF" />
+</div>
 
-### `npm test`
+<h4>Back-End</h4>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<div>
+<img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white"> <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white">
 
-### `npm run build`
+</div>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  
+<br/><br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h3>👨‍👩‍👧 팀원 소개</h3>
+<hr/><br />
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+|<img src="https://github.com/sooyeonJeong0315.png" width="80">|<img src="https://github.com/ChaewonLee21.png" width="80">|<img src="https://github.com/healim01.png" width="80">|<img src="https://github.com/sumina729.png" width="80">|<img src="https://github.com/proreg.png" width="80">|
+|:---:|:---:|:---:|:---:|:---:|
+|[](https://github.com/0lrlokr)|[](https://github.com/Kimminsu16)|[](https://github.com/healim01)|[](https://github.com/sumina729)|[](https://github.com/prorege)|
+|이호리|박정민|최혜림|이수민|양세혁
+|기획자|디자이너|프론트엔드|백엔드|백엔드
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br/>

@@ -1,4 +1,4 @@
-# 🦁 멋쟁이 사자처럼 11기 피서해커톤 2023 ( Team : Fundiggin; 펀디깅 )
+## 🦁 멋쟁이 사자처럼 11기 피서해커톤 2023 <br/> ( Team : Fundiggin; 펀디깅 )
 
 <br/> <br/>
 <p align="center">
